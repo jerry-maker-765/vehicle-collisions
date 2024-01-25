@@ -10,7 +10,7 @@ library(dplyr)
 library(readr)
 
 #### Clean data ####
-data <- read_csv(here::here("Vehicle-Collisions/input/data/Collision_data.csv"))
+data <- read_csv(here::here("input/data/Collision_data.csv"))
 str(data$date)
 data$date <- as.Date(data$date, format = "%Y-%m-%d")
 data <- mutate(data, month = format(date, "%m"))
@@ -52,5 +52,5 @@ collision_data_clean <- winter_data %>%
   select(year, district, light, visibility, road_condition, Fatality)
 
 #### Save data ####
-write.csv(collision_data_clean, "/cloud/project/Vehicle-Collisions/input/data/Collision_data_clean.csv", row.names = FALSE)
+write.csv(collision_data_clean, "/cloud/project/input/data/Collision_data_clean.csv", row.names = FALSE)
 
